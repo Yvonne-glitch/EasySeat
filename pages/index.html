@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>选择食堂</title>
+    <link rel="stylesheet" href="../css/style.css">
+</head>
+<body>
+    <h2 class="first">你好！同学</h2>
+    <div class="container">
+        <h2 class="centered second">当前校区：金明校区</h2>
+        <h2 class="centered second">请选择食堂</h2>
+        <button class="canteen-btn">
+            北苑食堂
+            <div class="floor-options">
+                <a href="seats.html" class="floor-option">一楼</a>
+                <span class="floor-option disabled">二楼</span>
+            </div>
+        </button>
+        <button class="canteen-btn">
+            南苑食堂
+            <div class="floor-options">
+                <span class="floor-option disabled">一楼</span>
+                <span class="floor-option disabled">二楼</span>
+            </div>
+        </button>
+        <button class="canteen-btn">
+            教苑食堂
+            <div class="floor-options">
+                <span class="floor-option disabled">一楼</span>
+                <span class="floor-option disabled">二楼</span>
+            </div>
+        </button>
+    </div>
+    <script src="../js/api.js"></script>
+    <script src="../js/toast.js"></script>
+</body>
+</html>

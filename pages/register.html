@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>注册</title>
+    <link rel="stylesheet" href="../css/style.css">
+</head>
+<body>
+    <button class="back-btn" onclick="window.location.href='profile.html'">返回</button>
+    <div class="container">
+        <div class="auth-container">
+            <h2>注册</h2>
+            <div class="form-container">
+                <input type="text" id="username" placeholder="用户名" class="form-input">
+                <input type="password" id="password" placeholder="密码" class="form-input">
+                <input type="password" id="confirmPassword" placeholder="确认密码" class="form-input">
+                <button class="submit-btn" onclick="register()">注册</button>
+            </div>
+            <div class="auth-link">
+                已有账号？<a href="login.html">立即登录</a>
+            </div>
+        </div>
+    </div>
+    <script src="../js/api.js"></script>
+    <script src="../js/toast.js"></script>
+    <script>
+        async function register() {
+            const username = document.getElementById('username').value;
+            const password = document.getElementById('password').value;
+            const confirmPassword = document.getElementById('confirmPassword').value;
+
+            if (!username || !password || !confirmPassword) {
+                Toast.error('请填写完整信息');
+                return;
+            }
+
+            if (password !== confirmPassword) {
+                Toast.error('两次输入的密码不一致');
+                return;
+            }
+
+            try {
+                await API.register(username, password);
+                Toast.success('注册成功');
+                setTimeout(() => {
+                    window.location.href = 'login.html';
+                }, 1000);
+            } catch (error) {
+                console.error('注册失败:', error);
+                Toast.error('注册失败，请稍后重试');
+            }
+        }
+    </script>
+</body>
+</html>

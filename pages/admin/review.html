@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>评论审核</title>
+    <link rel="stylesheet" href="../../css/style.css">
+</head>
+<body>
+    <button class="back-btn" onclick="window.location.href='../profile.html'">返回个人页</button>
+    <div class="container">
+        <div class="admin-review-container">
+            <h2 class="admin-title">评论审核</h2>
+            <div class="review-filters">
+                <button class="filter-btn active" data-status="pending">待审核</button>
+                <button class="filter-btn" data-status="approved">已通过</button>
+                <button class="filter-btn" data-status="rejected">已拒绝</button>
+            </div>
+            <div id="pendingComments" class="comments-list">
+                <!-- 评论将通过 JavaScript 动态加载 -->
+            </div>
+        </div>
+    </div>
+    <script src="../../js/api.js"></script>
+    <script src="../../js/toast.js"></script>
+    <script src="../../js/admin/review.js"></script>
+</body>
+</html>

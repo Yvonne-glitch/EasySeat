@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>登录</title>
+    <link rel="stylesheet" href="../css/style.css">
+</head>
+<body>
+    <button class="back-btn" onclick="window.location.href='profile.html'">返回</button>
+    <div class="container">
+        <div class="auth-container">
+            <h2>登录</h2>
+            <div class="role-selector">
+                <label>
+                    <input type="radio" name="role" value="user" checked>
+                    普通用户
+                </label>
+                <label>
+                    <input type="radio" name="role" value="admin">
+                    管理员
+                </label>
+            </div>
+            <div class="form-container">
+                <input type="text" id="username" placeholder="用户名" class="form-input">
+                <input type="password" id="password" placeholder="密码" class="form-input">
+                <button class="submit-btn" onclick="login()">登录</button>
+            </div>
+            <div class="auth-link">
+                还没有账号？<a href="register.html">立即注册</a>
+            </div>
+        </div>
+    </div>
+    <script src="../js/api.js"></script>
+    <script src="../js/toast.js"></script>
+    <script src="../js/profile.js"></script>
+</body>
+</html>

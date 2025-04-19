@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>空位查询 - 智能视图</title>
+    <link rel="stylesheet" href="../css/style.css">
+    <style>
+        /* 新增放大镜和缩放提示样式 */
+        .zoom-container {
+            position: relative;
+            overflow: hidden;
+            cursor: zoom-in;
+            transition: transform 0.3s;
+        }
+        .zoom-tips {
+            position: absolute;
+            bottom: 10px;
+            right: 10px;
+            background: rgba(0,0,0,0.7);
+            color: white;
+            padding: 6px 12px;
+            border-radius: 15px;
+            font-size: 12px;
+            pointer-events: none;
+            opacity: 0;
+            transition: opacity 0.3s;
+        }
+        .zoom-container:hover .zoom-tips {
+            opacity: 1;
+        }
+    </style>
+</head>
+<body>
+    <button class="back-btn" onclick="window.location.href='index.html'">返回首页</button>
+    <div class="container">
+        <div class="seats-container">
+            <div class="zoom-container" id="zoomContainer">
+                <img id="seatsImage" src="../server/assets/output.png" alt="座位分布图">
+                <div class="zoom-tips">双击/双触放大</div>
+            </div>
+            <div class="legend">
+                <div class="legend-item">
+                    <span class="dot red"></span>
+                    <span>已占用</span>
+                </div>
+                <div class="legend-item">
+                    <span class="dot green"></span>
+                    <span>空座位</span>
+                </div>
+            </div>
+            <div class="refresh-container">
+                <button id="refreshBtn" class="refresh-btn">刷新</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- 底部导航栏 -->
+    <nav class="cloud-nav">
+        <a href="seats.html" class="nav-item active">
+            <img src="../assets/niuyouguo.png" alt="空位">
+            <span>空位</span>
+        </a>
+        <a href="overview.html" class="nav-item">
+            <img src="../assets/fanqie.png" alt="首页">
+            <span>预览</span>
+        </a>
+        <a href="popularity.html" class="nav-item">
+            <img src="../assets/xilanhua.png" alt="推荐">
+            <span>推荐</span>
+        </a>
+        <a href="profile.html" class="nav-item">
+            <img src="../assets/caihong.png" alt="我的">
+            <span>我的</span>
+        </a>
+    </nav>
+
+    <script src="../js/api.js"></script>
+    <script src="../js/seats.js"></script>
+    <script>
+        // 智能缩放功能
+        document.addEventListener('DOMContentLoaded', () => {
+            const zoomContainer = document.getElementById('zoomContainer');
+            const seatsImage = document.getElementById('seatsImage');
+            let currentScale = 1;
+            const maxScale = 3;
+
+            // 双击/双触放大逻辑
+            let lastTap = 0;
+            const handleZoom = (clientX, clientY) => {
+                const rect = zoomContainer.getBoundingClientRect();
+                const x = clientX - rect.left;
+                const y = clientY - rect.top;
+                
+                currentScale = currentScale === maxScale ? 1 : Math.min(maxScale, currentScale * 2);
+                seatsImage.style.transform = `scale(${currentScale})`;
+                seatsImage.style.transformOrigin = `${x}px ${y}px`;
+            };
+
+            // 桌面端
+            zoomContainer.addEventListener('dblclick', (e) => {
+                handleZoom(e.clientX, e.clientY);
+            });
+
+            // 移动端
+            zoomContainer.addEventListener('touchend', (e) => {
+                const now = Date.now();
+                if (now - lastTap < 300) {
+                    handleZoom(e.changedTouches[0].clientX, e.changedTouches[0].clientY);
+                }
+                lastTap = now;
+            });
+
+            // 双指缩放
+            let initialDistance = null;
+            zoomContainer.addEventListener('touchstart', (e) => {
+                if (e.touches.length === 2) {
+                    initialDistance = Math.hypot(
+                        e.touches[0].clientX - e.touches[1].clientX,
+                        e.touches[0].clientY - e.touches[1].clientY
+                    );
+                }
+            });
+
+            zoomContainer.addEventListener('touchmove', (e) => {
+                if (e.touches.length === 2) {
+                    e.preventDefault();
+                    const currentDistance = Math.hypot(
+                        e.touches[0].clientX - e.touches[1].clientX,
+                        e.touches[0].clientY - e.touches[1].clientY
+                    );
+                    currentScale = Math.min(maxScale, currentDistance / initialDistance);
+                    seatsImage.style.transform = `scale(${currentScale})`;
+                }
+            });
+        });
+    </script>
+</body>
+</html>

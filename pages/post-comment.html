@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>发布评论</title>
+    <link rel="stylesheet" href="../css/style.css">
+</head>
+<body>
+    <button class="back-btn" onclick="window.location.href='profile.html'">返回个人主页</button>
+    <div class="container">
+        <div class="post-comment-container">
+            <h2 class="centered">发布评论</h2>
+            <textarea id="commentContent" class="comment-input" placeholder="请输入您的评论内容..."></textarea>
+            <div class="visibility-toggle">
+                <input type="checkbox" id="isPublic">
+                <label for="isPublic">公开此评论</label>
+            </div>
+            <button class="submit-btn" onclick="submitComment()">发布评论</button>
+        </div>
+    </div>
+
+    <script src="../js/api.js"></script>
+    <script src="../js/post-comment.js"></script>
+    <script src="../js/toast.js"></script>
+</body>
+</html>

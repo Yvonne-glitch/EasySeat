@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>食堂座位状态</title>
+    <style>
+        .seat {
+            display: inline-block;
+            width: 50px;
+            height: 50px;
+            margin: 10px;
+            text-align: center;
+            line-height: 50px;
+            font-size: 16px;
+            border-radius: 50%;
+        }
+        .free { background-color: green; color: white; }
+        .occupied { background-color: red; color: white; }
+    </style>
+</head>
+<body>
+    <h1>食堂座位状态</h1>
+    <div id="seat-map"></div>
+
+    <script>
+        async function fetchSeatStatus() {
+            try {
+                const response = await fetch('/seat-status');
+                const data = await response.json();
+                updateSeatMap(data);
+            } catch (error) {
+                console.error('Error fetching seat status:', error);
+            }
+        }
+
+        function updateSeatMap(seatStatus) {
+            const seatMap = document.getElementById('seat-map');
+            seatMap.innerHTML = ''; // 清空旧数据
+            for (const [id, status] of Object.entries(seatStatus)) {
+                const seat = document.createElement('div');
+                seat.className = `seat ${status}`;
+                seat.textContent = id;
+                seatMap.appendChild(seat);
+            }
+        }
+
+        // 初始加载数据
+        fetchSeatStatus();
+        // 每5秒刷新一次数据
+        setInterval(fetchSeatStatus, 5000);
+    </script>
+</body>
+</html>

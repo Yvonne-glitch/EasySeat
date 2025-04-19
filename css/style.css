@@ -1,0 +1,1011 @@
+/* 全局样式 */
+body {
+    background-color: #fef3f0; 
+    margin: 0;
+    padding-bottom: 60px; /* 为底部导航栏预留空间 */
+    font-family: Arial, sans-serif;
+}
+
+.back-btn {
+    position: fixed;
+    top: 20px;
+    left: 20px;
+    background-color: rgba(217, 119, 93, 0.8); /* 使用半透明背景 */
+    color: white;
+    border: none;
+    padding: 8px 16px;
+    border-radius: 20px;
+    font-size: 14px;
+    cursor: pointer;
+    font-family: 'yuanyuan1', sans-serif;
+    transition: all 0.3s;
+    z-index: 100;
+    backdrop-filter: blur(5px); /* 添加模糊效果 */
+}
+
+.back-btn:hover {
+    background-color: rgba(193, 102, 76, 0.9); /* 悬停时稍微不透明 */
+    transform: translateY(-2px); /* 添加轻微上浮效果 */
+}
+
+@font-face {
+    font-family: 'yuanyuan1'; /* 自定义字体名称 */
+    src: url('../assets/MaoKenWangXingYuan-2.ttf') format('truetype'); /* 字体文件路径 */
+}
+
+@font-face {
+    font-family: 'yuanyuan2'; /* 自定义字体名称 */
+    src: url('../assets/MaoKenZhuYuanTi-MaokenZhuyuanTi-2.ttf') format('truetype'); /* 字体文件路径 */
+}
+
+@font-face {
+    font-family: 'yuanyuan3'; /* 自定义字体名称 */
+    src: url('../assets/YeZiGongChangXiaoShiTou-2.ttf') format('truetype'); /* 字体文件路径 */
+}
+
+@font-face {
+    font-family: 'yuanyuan4'; /* 自定义字体名称 */
+    src: url('../assets/AlimamaFangYuanTiVF-Thin-2.ttf') format('truetype'); /* 字体文件路径 */
+}
+
+h2 {
+    white-space: pre;
+    font-family: 'yuanyuan1', sans-serif; 
+}
+
+.first{
+    color:#d9775d;
+    margin-bottom: 10px;
+}
+
+.second{
+    color: #7c5542;
+}
+
+/* 容器样式 */
+.container {
+    width: 100%; /* 确保容器宽度为100% */
+    box-sizing: border-box; /* 包括内边距和边框在内的宽度计算 */
+    padding: 20px;
+    padding-top: 60px;
+}
+
+.centered {
+    text-align: center; /* 使特定 <h2> 内容居中 */
+}
+
+/* 食堂选择按钮样式 */
+.canteen-btn {
+    display: block; /* 确保按钮为块级元素，独占一行 */
+    width: 100%; /* 确保按钮宽度填满父容器 */
+    box-sizing: border-box; /* 包括内边距和边框在内的宽度计算 */
+    margin-bottom: 10px;
+    padding: 20px; /* 增加内边距，扩大按钮区域 */
+    background-color: #fdf2d6;
+    color: #333;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    font-size: 18px; /* 增大字体大小 */
+    cursor: pointer;
+    text-align: left;
+    font-family: 'yuanyuan4', sans-serif; 
+}
+
+.canteen-btn .arrow {
+    font-size: 24px; /* 增大箭头图标大小 */
+    color: #999;
+}
+
+.canteen-btn:hover {
+    background-color: #f0f0f0;
+}
+
+/* 底部导航栏样式 */
+.cloud-nav {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    background: #fef3f0;
+    padding: 8px 0;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    box-shadow: 0 -2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.nav-item {
+    text-decoration: none;
+    color: #333;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 4px 8px;
+}
+
+.nav-item img {
+    width: 24px;
+    height: 24px;
+    margin-bottom: 4px;
+}
+
+.nav-item span {
+    font-size: 16px;
+    color:#7c5542;
+    font-family:'yuanyuan1'
+}
+
+.nav-item.active span {
+    font-weight: bold;
+    color: #d9775d;
+}
+
+.nav-item:hover {
+    color: #d9775d;
+}
+
+/* Overview页面样式 */
+.overview-container {
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+    padding-top: 60px;
+}
+
+.status-message {
+    font-size: 18px;
+    font-family: 'yuanyuan1', sans-serif;
+    color: #7c5542;
+    text-align: center;
+    padding: 10px;
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.heatmap-container {
+    width: 100%;
+    max-width: 600px;
+    background: #fff;
+    padding: 15px;
+    border-radius: 12px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.heatmap-container img {
+    width: 100%;
+    height: auto;
+    border-radius: 8px;
+}
+
+.refresh-btn {
+    background-color: #d9775d;
+    color: white;
+    border: none;
+    padding: 12px 24px;
+    border-radius: 25px;
+    font-size: 16px;
+    cursor: pointer;
+    font-family: 'yuanyuan1', sans-serif;
+    transition: background-color 0.3s;
+}
+
+.refresh-btn:hover {
+    background-color: #c1664c;
+}
+
+.current-count {
+    font-size: 16px;
+    color: #7c5542;
+    font-family: 'yuanyuan1', sans-serif;
+    text-align: center;
+    padding: 10px;
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+/* 推荐页面样式 */
+.popularity-container {
+    background: #fff;
+    padding: 20px;
+    border-radius: 12px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    margin-top: 20px;
+}
+
+.popularity-message {
+    text-align: center;
+    color: #7c5542;
+    font-family: 'yuanyuan1', sans-serif;
+    font-size: 16px;
+    padding: 20px;
+}
+
+/* 空位页面样式 */
+.container h2 {
+    margin-bottom: 20px;
+    color: #7c5542;
+}
+
+.canteen-btn {
+    margin-bottom: 15px;
+    transition: transform 0.2s;
+}
+
+.canteen-btn:hover {
+    transform: translateX(5px);
+}
+
+/* 空位页面样式 */
+.seats-container {
+    background: #fff;
+    padding: 20px;
+    border-radius: 12px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    margin-bottom: 20px;
+}
+
+.seats-container img {
+    width: 100%;
+    height: auto;
+    border-radius: 8px;
+    margin-bottom: 15px;
+}
+
+.refresh-container {
+    display: flex;
+    justify-content: center;
+    margin: 15px 0;
+}
+
+.legend {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+}
+
+.legend-item {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-family: 'yuanyuan1', sans-serif;
+    color: #7c5542;
+}
+
+.dot {
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+}
+
+.dot.red {
+    background-color: #d9775d;
+}
+
+.dot.green {
+    background-color: #4CAF50;
+}
+
+.trend-container {
+    background: #fff;
+    padding: 20px;
+    border-radius: 12px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.trend-container h3 {
+    text-align: center;
+    color: #7c5542;
+    font-family: 'yuanyuan1', sans-serif;
+    margin-bottom: 15px;
+}
+
+#trendChart {
+    width: 100%;
+    height: 200px;
+}
+
+/* 食堂选择按钮样式 */
+.canteen-btn {
+    display: block;
+    width: 100%;
+    box-sizing: border-box;
+    margin-bottom: 10px;
+    padding: 20px;
+    background-color: #fdf2d6;
+    color: #333;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    font-size: 18px;
+    cursor: pointer;
+    text-align: left;
+    font-family: 'yuanyuan4', sans-serif;
+}
+
+.canteen-btn .floor-options {
+    display: flex;
+    gap: 10px;
+    margin-top: 10px;
+}
+
+.floor-option {
+    padding: 5px 10px;
+    background-color: #fff;
+    border: 1px solid #ddd;
+    border-radius: 3px;
+    font-size: 14px;
+    color: #7c5542;
+    text-decoration: none;
+}
+
+.floor-option:hover {
+    background-color: #f0f0f0;
+}
+
+.floor-option.disabled {
+    color: #999;
+    cursor: not-allowed;
+    pointer-events: none;
+}
+
+/* 用户页面样式 */
+.profile-container {
+    background: #fff;
+    padding: 20px;
+    border-radius: 12px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    margin-bottom: 20px;
+}
+
+.login-message {
+    text-align: center;
+    padding: 40px 20px;
+}
+
+.login-message h2 {
+    color: #7c5542;
+    margin-bottom: 20px;
+}
+
+.login-message p {
+    color: #666;
+    margin-bottom: 30px;
+}
+
+.form-container {
+    max-width: 400px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+.form-input {
+    width: 100%;
+    padding: 12px;
+    margin-bottom: 15px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    font-size: 16px;
+    font-family: 'yuanyuan4', sans-serif;
+}
+
+.comment-input {
+    width: 100%;
+    height: 100px;
+    padding: 12px;
+    margin-bottom: 15px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    font-size: 16px;
+    font-family: 'yuanyuan4', sans-serif;
+    resize: vertical;
+}
+
+.submit-btn {
+    background-color: #d9775d;
+    color: white;
+    border: none;
+    padding: 12px 24px;
+    border-radius: 25px;
+    font-size: 16px;
+    cursor: pointer;
+    font-family: 'yuanyuan1', sans-serif;
+    transition: background-color 0.3s;
+    width: 100%;
+}
+
+.submit-btn:hover {
+    background-color: #c1664c;
+}
+
+.login-btn {
+    background-color: #d9775d;
+    color: white;
+    border: none;
+    padding: 12px 24px;
+    border-radius: 25px;
+    font-size: 16px;
+    cursor: pointer;
+    font-family: 'yuanyuan1', sans-serif;
+    transition: background-color 0.3s;
+}
+
+.login-btn:hover {
+    background-color: #c1664c;
+}
+
+.logout-btn {
+    background-color: #f44336;
+    color: white;
+    border: none;
+    padding: 8px 16px;
+    border-radius: 20px;
+    font-size: 14px;
+    cursor: pointer;
+    font-family: 'yuanyuan1', sans-serif;
+    transition: background-color 0.3s;
+    margin-top: 10px;
+}
+
+.logout-btn:hover {
+    background-color: #d32f2f;
+}
+
+.visibility-toggle {
+    margin-bottom: 15px;
+    color: #7c5542;
+    font-family: 'yuanyuan1', sans-serif;
+}
+
+.visibility-toggle input[type="checkbox"] {
+    margin-right: 8px;
+}
+
+.comments-list {
+    margin-top: 20px;
+}
+
+.comment-item {
+    background: #f9f9f9;
+    padding: 15px;
+    border-radius: 8px;
+    margin-bottom: 15px;
+    position: relative;
+}
+
+.comment-content {
+    color: #333;
+    font-size: 16px;
+    margin-bottom: 10px;
+    font-family: 'yuanyuan4', sans-serif;
+}
+
+.comment-meta {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    color: #666;
+    font-size: 14px;
+}
+
+.comment-actions {
+    display: flex;
+    gap: 10px;
+}
+
+.comment-action-btn {
+    background: none;
+    border: none;
+    color: #d9775d;
+    cursor: pointer;
+    font-family: 'yuanyuan1', sans-serif;
+    font-size: 14px;
+    padding: 4px 8px;
+}
+
+.comment-action-btn:hover {
+    color: #c1664c;
+}
+
+.comment-status {
+    padding: 4px 8px;
+    border-radius: 12px;
+    font-size: 12px;
+    font-family: 'yuanyuan1', sans-serif;
+}
+
+.status-pending {
+    background-color: #fff3e0;
+    color: #f57c00;
+}
+
+.status-approved {
+    background-color: #e8f5e9;
+    color: #4caf50;
+}
+
+.status-rejected {
+    background-color: #ffebee;
+    color: #f44336;
+}
+
+/* 管理员样式 */
+.admin-badge {
+    background-color: #d9775d;
+    color: white;
+    padding: 4px 8px;
+    border-radius: 12px;
+    font-size: 12px;
+    font-family: 'yuanyuan1', sans-serif;
+    margin-left: 8px;
+}
+
+.admin-actions {
+    display: flex;
+    gap: 10px;
+    margin-top: 10px;
+}
+
+.admin-action-btn {
+    background-color: #d9775d;
+    color: white;
+    border: none;
+    padding: 6px 12px;
+    border-radius: 15px;
+    font-size: 14px;
+    cursor: pointer;
+    font-family: 'yuanyuan1', sans-serif;
+    transition: background-color 0.3s;
+}
+
+.admin-action-btn:hover {
+    background-color: #c1664c;
+}
+
+/* 推荐页面评论样式 */
+.public-comment {
+    background: #fff;
+    padding: 15px;
+    border-radius: 8px;
+    margin-bottom: 15px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+}
+
+.public-comment-content {
+    color: #333;
+    font-size: 16px;
+    font-family: 'yuanyuan4', sans-serif;
+    line-height: 1.5;
+}
+
+.public-comment-time {
+    color: #999;
+    font-size: 14px;
+    margin-top: 8px;
+    font-family: 'yuanyuan1', sans-serif;
+}
+
+/* 公开评论样式 */
+.public-comment {
+    background-color: #fff;
+    border-radius: 8px;
+    padding: 15px;
+    margin-bottom: 15px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+}
+
+.comment-header {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 10px;
+    font-family: 'yuanyuan1', sans-serif;
+}
+
+.comment-user {
+    font-weight: bold;
+    color: #d9775d;
+}
+
+.comment-time {
+    color: #999;
+    font-size: 14px;
+}
+
+.comment-content {
+    color: #333;
+    line-height: 1.5;
+    font-family: 'yuanyuan4', sans-serif;
+}
+
+.no-comments {
+    text-align: center;
+    color: #7c5542;
+    padding: 20px;
+    font-family: 'yuanyuan1', sans-serif;
+}
+
+.error-message {
+    color: #d9775d;
+    text-align: center;
+    padding: 20px;
+}
+
+/* 认证页面样式 */
+.auth-container {
+    max-width: 400px;
+    margin: 40px auto;
+    background: #fff;
+    padding: 30px;
+    border-radius: 12px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.auth-buttons {
+    display: flex;
+    gap: 20px;
+    justify-content: center;
+}
+
+.register-btn {
+    background-color: #7c5542;
+    color: white;
+    border: none;
+    padding: 12px 24px;
+    border-radius: 25px;
+    font-size: 16px;
+    cursor: pointer;
+    font-family: 'yuanyuan1', sans-serif;
+    transition: background-color 0.3s;
+}
+
+.register-btn:hover {
+    background-color: #634536;
+}
+
+.auth-link {
+    text-align: center;
+    margin-top: 20px;
+    color: #7c5542;
+    font-family: 'yuanyuan1', sans-serif;
+}
+
+.auth-link a {
+    color: #d9775d;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.auth-link a:hover {
+    text-decoration: underline;
+}
+
+/* 个人主页布局样式 */
+.profile-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    padding: 20px;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+.profile-text {
+    flex: 1;
+    padding-right: 20px; /* 给右侧图片留出空间 */
+}
+
+.profile-title {
+    font-size: 24px;
+    color: #7c5542;
+    margin-bottom: 15px;
+    font-family: 'yuanyuan1', sans-serif;
+}
+
+.welcome-text {
+    font-size: 28px;
+    color: #d9775d;
+    margin-bottom: 0;
+    font-family: 'yuanyuan1', sans-serif;
+}
+
+.profile-image {
+    width: 120px; /* 固定容器宽度 */
+    height: 120px; /* 固定容器高度 */
+    flex-shrink: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.profile-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain; /* 改为 contain 确保图片完整显示 */
+    border-radius: 12px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.profile-actions {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    margin-top: 30px;
+}
+
+.action-btn {
+    background-color: #d9775d;
+    color: white;
+    border: none;
+    padding: 12px 24px;
+    border-radius: 25px;
+    font-size: 16px;
+    cursor: pointer;
+    font-family: 'yuanyuan1', sans-serif;
+    transition: background-color 0.3s;
+    width: 100%;
+}
+
+.action-btn:hover {
+    background-color: #c1664c;
+}
+
+/* 发布评论页面样式 */
+.post-comment-container {
+    max-width: 600px;
+    margin: 0 auto;
+    background: #fff;
+    padding: 30px;
+    border-radius: 12px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* 我的评论页面样式 */
+.my-comments-container {
+    max-width: 800px;
+    margin: 0 auto;
+    background: #fff;
+    padding: 30px;
+    border-radius: 12px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* 个人主页样式调整 */
+.profile-info-container {
+    background: #fff;
+    border-radius: 12px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    margin-bottom: 20px;
+    overflow: hidden; /* 防止内容溢出 */
+}
+
+.user-actions {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    margin-top: 20px;
+    padding: 0 20px;
+}
+
+.admin-panel {
+    margin: 20px 0;
+    padding: 0 20px;
+}
+
+.admin-btn {
+    background-color: #7c5542;
+    color: white;
+    border: none;
+    padding: 12px 24px;
+    border-radius: 25px;
+    font-size: 16px;
+    cursor: pointer;
+    font-family: 'yuanyuan1', sans-serif;
+    transition: background-color 0.3s;
+    width: 100%;
+}
+
+.admin-btn:hover {
+    background-color: #634536;
+}
+
+/* 在 style.css 中添加 */
+.admin-review-container {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+.admin-title {
+    text-align: center;
+    color: #7c5542;
+    margin-bottom: 20px;
+}
+
+.review-filters {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    margin-bottom: 20px;
+}
+
+.filter-btn {
+    background: none;
+    border: 1px solid #d9775d;
+    color: #d9775d;
+    padding: 8px 16px;
+    border-radius: 20px;
+    cursor: pointer;
+    font-family: 'yuanyuan1', sans-serif;
+    transition: all 0.3s;
+}
+
+.filter-btn.active {
+    background: #d9775d;
+    color: white;
+}
+
+.review-comment-item {
+    background: #fff;
+    padding: 20px;
+    border-radius: 12px;
+    margin-bottom: 15px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.review-actions {
+    display: flex;
+    gap: 10px;
+    margin-top: 15px;
+}
+
+.review-btn {
+    padding: 8px 16px;
+    border: none;
+    border-radius: 20px;
+    cursor: pointer;
+    font-family: 'yuanyuan1', sans-serif;
+    transition: background-color 0.3s;
+}
+
+.review-btn.approve {
+    background-color: #4CAF50;
+    color: white;
+}
+
+.review-btn.reject {
+    background-color: #f44336;
+    color: white;
+}
+
+.review-btn.delete {
+    background-color: #7c5542;
+    color: white;
+}
+
+.role-selector {
+    margin-bottom: 20px;
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+}
+
+.role-selector label {
+    color: #7c5542;
+    font-family: 'yuanyuan1', sans-serif;
+    cursor: pointer;
+}
+
+.role-selector input[type="radio"] {
+    margin-right: 8px;
+}
+
+/* 管理员操作按钮样式 */
+.admin-actions {
+    margin-top: 10px;
+    display: flex;
+    justify-content: flex-end;
+}
+
+.admin-actions .review-btn {
+    padding: 4px 12px;
+    font-size: 14px;
+}
+
+.toast-container {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 9999;
+    pointer-events: none;
+}
+
+.toast-message {
+    background-color: rgba(0, 0, 0, 0.8);
+    color: #e37669;
+    padding: 15px 25px;
+    border-radius: 8px;
+    font-family: 'yuanyuan1', sans-serif;
+    font-size: 16px;
+    text-align: center;
+    opacity: 0;
+    transition: opacity 0.3s ease-in-out;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+    max-width: 80vw;
+    word-wrap: break-word;
+}
+
+.toast-message.show {
+    opacity: 1;
+}
+
+.toast-message.error {
+    background-color: #fdf2d6;
+}
+
+.toast-message.success {
+    background-color: #fdf2d6;
+}
+/* 合并global.css和preview.css内容到style.css */
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@400;700&display=swap');
+
+/* 新增：图片放大功能样式 */
+.zoom-container {
+    position: relative;
+    overflow: hidden;
+    cursor: zoom-in;
+    border-radius: 8px;
+    margin-bottom: 15px;
+}
+
+.zoom-lens {
+    position: absolute;
+    border: 2px solid #4CAF50;
+    background: rgba(255, 255, 255, 0.3);
+    pointer-events: none;
+    display: none;
+}
+
+.zoomed-image {
+    position: absolute;
+    width: 200%;
+    height: 200%;
+    transform-origin: 0 0;
+    display: none;
+    border-radius: 8px;
+}
+
+/* 优化按钮统一样式 */
+button {
+    font-family: 'Noto Sans SC', sans-serif;
+}
+
+/* 合并seats.css内容 */
+#seatsContainer {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(100px, 1fr));
+    gap: 15px;
+    margin: 2rem 0;
+}
+
+.seat {
+    aspect-ratio: 1;
+    background: #4CAF50;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 8px;
+    color: white;
+    font-size: 1.2rem;
+    transition: transform 0.2s;
+}
+
+.seat:hover {
+    transform: scale(1.05);
+}
+
+.seat.occupied {
+    background: linear-gradient(145deg, #cccccc, #b3b3b3);
+}

@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>评价</title>
+    <link rel="stylesheet" href="../css/style.css">
+</head>
+<body>
+    <button class="back-btn" onclick="window.location.href='index.html'">返回首页</button>
+    <div class="container">
+        <h2 class="centered">食堂评价</h2>
+        <div class="popularity-container">
+            <div id="publicComments" class="comments-list">
+                <!-- 评论将通过 JavaScript 动态加载 -->
+            </div>
+        </div>
+    </div>
+    <!-- 底部导航栏 -->
+    <nav class="cloud-nav">
+        <a href="seats.html" class="nav-item">
+            <img src="../assets/niuyouguo.png" alt="空位">
+            <span>空位</span>
+        </a>
+        <a href="overview.html" class="nav-item">
+            <img src="../assets/fanqie.png" alt="预览">
+            <span>预览</span>
+        </a>
+        <a href="popularity.html" class="nav-item active">
+            <img src="../assets/xilanhua.png" alt="推荐">
+            <span>推荐</span>
+        </a>
+        <a href="profile.html" class="nav-item">
+            <img src="../assets/caihong.png" alt="我的">
+            <span>我的</span>
+        </a>
+    </nav>
+
+    <script src="../js/api.js"></script>
+    <script src="../js/popularity.js"></script>
+    <script src="../js/toast.js"></script>
+</body>
+</html>
